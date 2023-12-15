@@ -38,17 +38,17 @@ To acquire MySQL, navigate to the official [MySQL Download](https://www.mysql.co
 (iii) Delete Channel <br>
 (iv) Confirm Subscribtion <br>
 (v) Number of Users for a Subscribtion <br>
-(vi) User Data Management
+(vi) User Data Management <br>
 
 ### Guest Viewer
-(i) Explore without Account
-(ii) Limited Access to Exclusive Content
-(iii) Quick Preview of Shows/Movies
+(i) Explore without Account <br>
+(ii) Limited Access to Exclusive Content <br>
+(iii) Quick Preview of Shows/Movies <br>
 
 ### Channels
-(i) Shows Streaming
-(ii) Upload New Content
-(iii) Manage Content Library
-(iv) Access Analytics
-(v) Show Timing
-(vi) Show Genre
+(i) Shows Streaming <br>
+(ii) Upload New Content <br>
+(iii) Manage Content Library <br>
+(iv) Access Analytics <br>
+(v) Show Timing <br>
+(vi) Show Genre <br>
