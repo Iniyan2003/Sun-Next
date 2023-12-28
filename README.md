@@ -23,7 +23,7 @@ To acquire MySQL, navigate to the official [MySQL Download](https://www.mysql.co
 (ii) View Channel <br>
 (iii) Create User Account <br>
 
-### Signin User
+### Sign_in User
 (i) User Mobile Number <br>
 (ii) User Log-in Password <br>
 (iii) User Name <br>
@@ -36,8 +36,8 @@ To acquire MySQL, navigate to the official [MySQL Download](https://www.mysql.co
 (i) Add New Channel <br>
 (ii) Update Channel <br>
 (iii) Delete Channel <br>
-(iv) Confirm Subscribtion <br>
-(v) Number of Users for a Subscribtion <br>
+(iv) Confirm Subscription <br>
+(v) Number of Users for a Subscription <br>
 (vi) User Data Management <br>
 
 ### Guest Viewer
@@ -52,3 +52,6 @@ To acquire MySQL, navigate to the official [MySQL Download](https://www.mysql.co
 (iv) Access Analytics <br>
 (v) Show Timing <br>
 (vi) Show Genre <br>
+
+### ER Diagram
+![ER Diagram](https://github.com/Iniyan2003/Sun-Next/assets/106759610/7b205bac-7169-4e28-80aa-32e9ddd63ea5)
