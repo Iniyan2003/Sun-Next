@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
-
 @RestController
 public class UserController {
 
@@ -34,6 +33,36 @@ public class UserController {
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+    @PutMapping("/users/{id}")
+    public String updateUser(@PathVariable("id") int id, @RequestBody User updatedUser) {
+        User user = userService.getUserById(id);
+        if (user != null) {
+            // Update the fields of the existing user with the new data
+            // Assuming all fields can be updated, modify accordingly if not
+            user.setUserName(updatedUser.getUserName());
+            user.setUserContact(updatedUser.getUserContact());
+            user.setUserCountry(updatedUser.getUserCountry());
+            // Update other fields similarly
+
+            userService.saveUser(user);
+            return "User updated successfully!";
+        } else {
+            return "User with ID " + id + " not found.";
+        }
+    }
+
+
+    @DeleteMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") int id) {
+        User user = userService.getUserById(id);
+        if (user != null) {
+            userService.deleteUserById(id);
+            return "User with ID " + id + " deleted successfully!";
+        } else {
+            return "User with ID " + id + " not found.";
+        }
     }
 
 }

@@ -21,5 +21,9 @@ public class ChannelService {
         return channelRepository.findAll();
     }
 
+    public void deleteChannel(int channelId)
+    {
+        channelRepository.deleteById(channelId);
+    }
 }
 
