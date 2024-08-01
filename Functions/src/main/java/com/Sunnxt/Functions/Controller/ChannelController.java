@@ -13,21 +13,27 @@ public class ChannelController {
     @Autowired
     private ChannelService channelService;
 
-    @PostMapping("/addChannel")
-    public String postChannel(@RequestBody Channel channel) {
-        channelService.saveChannel(channel);
+    @PostMapping("/addChannel/{userId}")
+    public String postChannel(@PathVariable("userId") int userId, @RequestBody Channel channel) {
+        channelService.createChannel(userId, channel);
         return "Channel added successfully.";
     }
 
-    @GetMapping("/channelcontents")
-    public List<Channel> getAllContent() {
-        return channelService.getAllContent();
+    @GetMapping("/channelcontents/{channelId}")
+    public Channel getChannel(@PathVariable("channelId") int channelId) {
+        return channelService.getChannel(channelId);
     }
 
-    @DeleteMapping("/channel/{channelId}")
-    public String deleteChannel(@PathVariable("channelId") int channelId)
+    @GetMapping("/getAllChannel/{userId}")
+    public List<Channel> getAllChannel(@PathVariable("userId") int userId) {
+        return channelService.getAllChannel(userId);
+    }
+
+    @DeleteMapping("/deletechannel/{userId}/{channelId}")
+    public String deleteChannel(@PathVariable("userId") int userId, @PathVariable("channelId") int channelId)
     {
-        channelService.deleteChannel(channelId);
+        channelService.deleteChannel(userId, channelId);
         return "Channel deleted";
     }
+
 }

@@ -13,47 +13,37 @@ public class SubscriptionController {
     @Autowired
     private SubscriptionService subscriptionService;
 
-    @PostMapping("/createSubscription")
-    public String createSubscription(@RequestBody Subscription subscription) {
-        subscriptionService.saveSubscription(subscription);
+    @PostMapping("/createSubscription/{userId}")
+    public String createSubscription(@PathVariable("userId") int userId, @RequestBody Subscription subscription) {
+        subscriptionService.createSubscription(userId, subscription);
         return "Subscription created successfully!";
     }
 
-    @GetMapping("/subscriptions")
-    public List<Subscription> getAllSubscriptions() {
-        return subscriptionService.getAllSubscriptions();
+    @GetMapping("/subscriptions/{userId}/{subscriptionId}")
+    public Subscription getAllSubscriptions(@PathVariable("userId") int userId, @PathVariable("subscriptionId") int subscriptionId) {
+        return subscriptionService.getsubscription(userId, subscriptionId);
     }
 
-    @PutMapping("/subscriptions/{id}")
-    public String updateSubscription(@PathVariable("id") int id, @RequestBody Subscription updatedSubscription) {
-        Subscription subscription = subscriptionService.getSubscriptionById(id);
-        if (subscription != null) {
-            // Update the fields of the existing subscription with the new data
-            subscription.setSubscriptionType(updatedSubscription.getSubscriptionType());
-            subscription.setSubscriptionCost(updatedSubscription.getSubscriptionCost());
-            subscription.setSubscriptionStartDate(updatedSubscription.getSubscriptionStartDate());
-            subscription.setSubscriptionEndDate(updatedSubscription.getSubscriptionEndDate());
-            subscription.setSubscriptionStatus(updatedSubscription.getSubscriptionStatus());
-            subscription.setCountOfUsersSubscribed(updatedSubscription.getCountOfUsersSubscribed());
-            subscription.setUserId(updatedSubscription.getUserId());
-
-            subscriptionService.saveSubscription(subscription);
+    @PutMapping("/subscriptions/{userId}/{subscriptionId}")
+    public String updateSubscription(@PathVariable("userId") int userId, @PathVariable("subscriptionId") int subscriptionId, @RequestBody Subscription subscription) {
+        Subscription subscription1 = subscriptionService.findById(subscriptionId);
+        if (subscription1 != null) {
+            subscriptionService.updateSubscription(userId, subscriptionId, subscription);
             return "Subscription updated successfully!";
         } else {
-            return "Subscription with ID " + id + " not found.";
+            return "Subscription with ID " + subscriptionId + " not found.";
         }
     }
 
-    @DeleteMapping("/deletesubscriptions/{id}")
-    public String deleteSubscription(@PathVariable("id") int id) {
-        Subscription subscription = subscriptionService.getSubscriptionById(id);
+    @DeleteMapping("/deletesubscriptions/{userId}/{subscriptionId}")
+    public String deleteSubscription(@PathVariable("userId") int userId, @PathVariable("subscriptionId") int subscriptionId) {
+        Subscription subscription = subscriptionService.findById(subscriptionId);
         if (subscription != null) {
-            subscriptionService.deleteSubscriptionById(id);
-            return "Subscription with ID " + id + " deleted successfully!";
+            subscriptionService.deleteSubscription(userId, subscriptionId);
+            return "Subscription with ID " + subscriptionId + " deleted successfully!";
         } else {
-            return "Subscription with ID " + id + " not found.";
+            return "Subscription with ID " + subscriptionId + " not found.";
         }
     }
 
-    // Add more controller methods as needed
 }

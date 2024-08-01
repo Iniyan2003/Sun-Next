@@ -2,6 +2,9 @@ package com.Sunnxt.Functions.Entity;
 
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "shows")
@@ -10,6 +13,12 @@ public class Show {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Show_ID")
     private int id;
+
+    @Column(name = "Show_Name")
+    private String name;
+
+    @Column(name = "Show_Description")
+    private String description;
 
     @Column(name = "Show_Schedule")
     private String schedule;
@@ -20,8 +29,10 @@ public class Show {
     @Column(name = "Channel_ID")
     private int channelId;
 
-    @Column(name = "Show_Name")
-    private String name;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "Registration_Time", updatable = false)
+    private Date registrationTime;
 
     public Show() {
     }
@@ -71,5 +82,13 @@ public class Show {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

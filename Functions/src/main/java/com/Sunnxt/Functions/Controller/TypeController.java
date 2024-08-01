@@ -30,7 +30,7 @@ public class TypeController {
         if (type != null) {
             return type;
         } else {
-            return null; // Or handle the null scenario as appropriate
+            return null;
         }
     }
 

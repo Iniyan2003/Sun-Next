@@ -1,9 +1,13 @@
 package com.Sunnxt.Functions.Entity;
 
+import com.Sunnxt.Functions.Enum.Usertype;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.Date;
 
 
 @Entity
@@ -17,7 +21,7 @@ public class User {
     @Column(name = "User_ID")
     private int userId;
 
-    @Column(name = "User_Name")
+    @Column(name = "User_Name", nullable = false)
     private String userName;
 
     @Column(name = "User_Contact")
@@ -35,25 +39,19 @@ public class User {
     @Column(name = "User_Gender")
     private String userGender;
 
-    @Column(name = "User_Email")
+    @Column(name = "User_Email", nullable = false)
     private String userEmail;
 
-    @Column(name = "User_Smart_Card_Number")
-    private String userSmartCardNumber;
-
-    @Column(name = "User_Registration_Date")
-    private String userRegistrationDate;
-
-    @Column(name = "User_Display_Name")
-    private String userDisplayName;
-
-    @Column(name = "User_DOB")
-    private String userDOB;
-
-    @Column(name = "Password")
+    @Column(name = "Password", nullable = false)
     private String password;
 
-    @Transient
-    private String newPassword;
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "Registration_Time", updatable = false)
+    private Date registrationTime;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "Usertype")
+    private Usertype usertype;
 }
 

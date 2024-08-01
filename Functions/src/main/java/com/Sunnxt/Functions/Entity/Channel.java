@@ -1,6 +1,9 @@
 package com.Sunnxt.Functions.Entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.util.Date;
 
 
 @Entity
@@ -23,6 +26,11 @@ public class Channel {
 
     @Column(name = "Channel_Genre")
     private String channelGenre;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "Registration_Time", updatable = false)
+    private Date registrationTime;
 
     // Getters and setters
     public int getChannelId() {
