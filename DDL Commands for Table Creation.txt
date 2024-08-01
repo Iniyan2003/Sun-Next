@@ -1,0 +1,94 @@
+Channels table:
+CREATE TABLE Channels (
+    channel_id INT NOT NULL AUTO_INCREMENT,
+    channel_description VARCHAR(255) DEFAULT NULL,
+    channel_genre VARCHAR(255) DEFAULT NULL,
+    channel_name VARCHAR(255) DEFAULT NULL,
+    channel_number INT UNIQUE DEFAULT NULL,
+    PRIMARY KEY (channel_id)
+);
+
+ChannelShows table:
+CREATE TABLE ChannelShows (
+    channel_id INT NOT NULL AUTO_INCREMENT,
+    popular_shows VARCHAR(255) DEFAULT NULL,
+    user_id INT DEFAULT NULL,
+    PRIMARY KEY (channel_id)
+);
+
+Content table:
+CREATE TABLE Content (
+    content_id INT NOT NULL AUTO_INCREMENT,
+    channel_id INT DEFAULT NULL,
+    content_modification_history DATE DEFAULT NULL,
+    content_upload_history DATE DEFAULT NULL,
+    uploaded_content_details VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (content_id)
+);
+
+Searches table:
+CREATE TABLE Searches (
+    search_id INT NOT NULL AUTO_INCREMENT,
+    popular_searches VARCHAR(255) DEFAULT NULL,
+    search_behavior VARCHAR(255) DEFAULT NULL,
+    user_id INT DEFAULT NULL,
+    PRIMARY KEY (search_id)
+);
+
+ShowsWatched table:
+CREATE TABLE ShowsWatched (
+    show_watched_id INT NOT NULL AUTO_INCREMENT,
+    shows_watched VARCHAR(255) DEFAULT NULL,
+    user_id INT DEFAULT NULL,
+    watch_history VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (show_watched_id)
+);
+
+Shows table:
+CREATE TABLE Shows (
+    show_id INT NOT NULL AUTO_INCREMENT,
+    channel_id INT DEFAULT NULL,
+    show_genre VARCHAR(255) DEFAULT NULL,
+    show_name VARCHAR(255) DEFAULT NULL,
+    show_schedule VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (show_id)
+);
+
+Subscriptions table:
+CREATE TABLE Subscriptions (
+    subscription_id INT NOT NULL AUTO_INCREMENT,
+    count_of_users_subscribed INT DEFAULT NULL,
+    subscription_cost DOUBLE DEFAULT NULL,
+    subscription_end_date DATE DEFAULT NULL,
+    subscription_start_date DATE DEFAULT NULL,
+    subscription_status VARCHAR(255) DEFAULT NULL,
+    subscription_type VARCHAR(255) DEFAULT NULL,
+    user_id INT DEFAULT NULL,
+    PRIMARY KEY (subscription_id)
+);
+
+Types table:
+CREATE TABLE Types (
+    type_id INT NOT NULL AUTO_INCREMENT,
+    type VARCHAR(255) DEFAULT NULL,
+    user_id INT DEFAULT NULL,
+    PRIMARY KEY (type_id)
+);
+
+Users table:
+CREATE TABLE Users (
+    user_id INT NOT NULL AUTO_INCREMENT,
+    password VARCHAR(255) DEFAULT NULL,
+    user_age INT DEFAULT NULL,
+    user_contact VARCHAR(255) DEFAULT NULL,
+    user_country VARCHAR(255) DEFAULT NULL,
+    user_dob VARCHAR(255) DEFAULT NULL,
+    user_display_name VARCHAR(255) DEFAULT NULL,
+    user_email VARCHAR(255) DEFAULT NULL,
+    user_gender VARCHAR(255) DEFAULT NULL,
+    user_name VARCHAR(255) DEFAULT NULL,
+    user_registration_date VARCHAR(255) DEFAULT NULL,
+    user_smart_card_number VARCHAR(255) DEFAULT NULL,
+    user_state VARCHAR(255) DEFAULT NULL,
+    PRIMARY KEY (user_id)
+);

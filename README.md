@@ -54,4 +54,4 @@ To acquire MySQL, navigate to the official [MySQL Download](https://www.mysql.co
 (vi) Show Genre <br>
 
 ### ER Diagram
-![ER Diagram](https://github.com/Iniyan2003/Sun-Next/assets/106759610/7b205bac-7169-4e28-80aa-32e9ddd63ea5)
+![ER Diagram](https://github.com/Iniyan2003/Sun-Next/assets/106759610/a62eebdc-3930-4af9-9ec7-998ada9ab988)
